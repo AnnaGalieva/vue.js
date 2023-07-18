@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="event-handling">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">Перевернуть</button>
+        <h1>Список элементов</h1>
+        <ul>
+            <li @click="deleteEl(index)" v-for="(element,index) in elements">
+                {{element}}-{{index}}
+            </li>
+        </ul>
+        <button @click="addElement">{{addButton}}</button>
+
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        // Задачи по vue
+        // 1.Создать кнопку "Перевернуть".При клике на кнопку текст кнопки, должен перевернуться и отобразиться в обратном порядке.
+        // 2.есть список элементов.Пользователь может добавлять новые элементы списка с текстом“ Новый элемент списка” нажав на кнопку "Добавить".
+        //3.* При клике на элемент списка он должен быть удален.(по желанию)
+        const EventHandling = {
+            data() {
+                return {
+                    message: 'Привет, Vue.js!',
+                    elements: [],
+                    element: 'Новый элемент списка',
+                    addButton: 'Добавить элемент списка',
+                }
+            },
+            methods: {
+                reverseMessage() {
+                    this.message = this.message
+                        .split('')
+                        .reverse()
+                        .join('');
+                },
+                addElement() {
+                    this.id += this.id;
+                    this.elements.push(this.element);
+                },
+                deleteEl(index) {
+                    this.elements.splice(index, 1);
+                }
+            }
+        }
+        Vue.createApp(EventHandling).mount('#event-handling');
+    </script>
+</body>
+
+</html>

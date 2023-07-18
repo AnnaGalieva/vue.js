@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="hello-vue">
+        {{ message }}
+        <p>Товаров в корзине {{count}}</p>
+        <button @click="toCount">{{buybefore}}</button>
+        <button @click="buyAllowed=!buyAllowed">Мне исполнилось 14 лет</button>
+        <p v-if="buyAllowed">Можете заказать товар</p>
+        <button @click="buyNotAllowed=!buyNotAllowed">Мне еще нет 14 лет</button>
+        <p v-show="buyNotAllowed">Доступ закрыт</p>
+        <button @click="showContent=!showContent" class="btn">Показать еще</button>
+        <p v-if="showContent" class="tracking-in-expand">Lorem, ipsum dolor.</p>
+        <button @click="createRandom(1,10)">генерировать случайное число</button>
+        <p v-show="randomCreated">{{randomNumber}}</p>
+        <p v-if="randomNumber<5">число меньше 5</p>
+        <p v-else-if="randomNumber>=5||randomNumber<=9">число от 5 до 9</p>
+        <p v-else>число равно 10</p>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        //создать параграф,внутри которого"товаров в корзине0",создать кнопку купить, при клике на которую, значение внутри параграфа будет увеличиваться на1, при  нажатии на кнопку купить, текст поменялся нна товар в корзине
+        //создать 2 кнопки мне исп 14 лет и мне еще нет 14 лет.усли нажать на первую то текст можете заказать товар, если на вторую-доступ закрыт
+        //создать кнопку показать еще,при клике на которую появляетс контент под кнопкой, при повторном клике, контент необходимо скрыть.Добавить анимацию появления текстового блока
+        //создать кнопку-генерировать случайное число.При клике на кнопку должно отображаться случайное число в заданном диапазоне(напр. от1 до 10).При клике на кнопку, если полученное значение меньше 5,необходимо вывести на страницу-число меньше 5. Если число от 5 до 9, вывести -число от 5 до 9. Если число равно 10 вывести- число равно 10
+
+        const HelloVueApp = {
+            data() {
+                return {
+                    message: 'Hello Vue!!',
+                    count: 0,
+                    buybefore: 'Купить',
+                    buyAllowed: false,
+                    buyNotAllowed: false,
+                    showContent: false,
+                    randomNumber: 0,
+                    randomCreated: false,
+                }
+            },
+            methods: {
+                toCount() {
+                    if (this.count < 1) {
+                        this.count++;
+                        this.buybefore = 'Товар в корзине'
+                    }
+                },
+                createRandom(min, max) {
+                    this.randomCreated = true
+                    if (this.randomCreated) {
+                        return this.randomNumber = Math.floor(Math.random() * (max - min) + min)
+                    }
+                }
+            },
+        }
+        Vue.createApp(HelloVueApp).mount('#hello-vue')
+            //buttin @click="random"><p>
+            //<p>{{digit}}
+            //p v-if="digit<5"
+            //p v-else-if="digit>=5 && digit <=9"
+            //p v-else
+
+        //digit=0;
+        //random(){
+        //this.digit=Match.floor(Mat.random()*10)+1;
+        // }
+    </script>
+</body>
+
+</html>
