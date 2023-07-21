@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="product in products" :key="product.id">
+                Название:{{product.name}} ; Цена:{{product.price}}</li>
+        </ul>
+        <button @click="sortAscending">Сортировать по возрастанию</button>
+        <button @click="sortВescending">Сортировать по убыванию</button>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        // Вы разрабатываете приложение для отображения и сортировки списка товаров.У вас есть массив объектов products, где каждый объект представляет товар с его названием и ценой.Вам необходимо отобразить список товаров и предоставить пользователю возможность сортировать товары по цене(по возрастанию и по убыванию).
+        const HelloVueApp = {
+            data() {
+                return {
+                    products: [{
+                        id: 1,
+                        name: 'Хлеб',
+                        price: 30,
+                    }, {
+                        id: 2,
+                        name: 'Молоко',
+                        price: 150,
+                    }, {
+                        id: 3,
+                        name: 'Масло',
+                        price: 200,
+                    }, ]
+                }
+            },
+            methods: {
+                sortAscending() {
+                    return this.products.sort((a, b) => a.price - b.price);
+                },
+                sortВescending() {
+                    return this.products.sort((a, b) => b.price - a.price);
+                }
+            },
+
+        }
+        Vue.createApp(HelloVueApp).mount('#app');
+    </script>
+
+</body>
+
+</html>

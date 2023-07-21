@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=DM+Serif+Display&family=Jost&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="box-content">
+        <header class="header center">
+            <nav class="header__left">
+                <a class="header__left_logo footer__interno_logo" href="index.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
+                    <path d="M0 34.0003H13.4588V24.499C13.4588 22.4853 15.0898 20.8543 17.1035 20.8543C19.1172 20.8543 20.7482 22.4853 20.7482 24.499V34.0003H33.9975V0C15.2211 0 0 15.2211 0 34.0003Z" fill="#CDA274" />
+                    </svg></a>
+                <a class="header__left_brand footer__interno_brand" href="index.html">Interno</a>
+            </nav>
+            <nav class="header__right">
+                <a class="header__right_text" href="index.html">Home</a>
+                <a class="header__right_text" href="#">Project</a>
+                <a class="header__right_text" href="#">Blog</a>
+            </nav>
+        </header>
+        <main class="main">
+            <section class="blog center">
+                <div class="blog__info">
+                    <div class="blog__info__heading">
+                        <h1 class="blog__info__heading_text">Articles & News</h1>
+                        <nav class="blog__info__heading_breadcrumb">
+                            <ul class="blog__info__heading_breadcrumb_ul">
+                                <li class="blog__info__heading_breadcrumb_li">
+                                    <a class="blog__info__heading_breadcrumb_link" href="">Home</a>
+                                </li>
+                                <li class="blog__info__heading_breadcrumb_li">
+                                    <a class="blog__info__heading_breadcrumb_link" href="">Blog</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+            </section>
+            <section class="post center">
+                <div class="post__heading">
+                    <h1 class="post__heading_text">Latest Post</h1>
+                </div>
+                <div class="post__content">
+                    <img class="post__content_img" src="img/post.svg" alt="post">
+                    <div class="post__content_info">
+                        <h3 class="post__content_info_heading">Low Cost Latest Invented Interior Designing Ideas</h3>
+                        <p class="post__content_info_text">Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpis dignissim maximus.posuere in.Contrary to popular belief.</p>
+                        <p class="post__content_info_text"> Lorem Ipsum is not simply random text. It has roots in a piece of classica.</p>
+                        <div class="post__content_info_min">
+                            <p class="post__content_info_min_text">26 December,2022 </p>
+                            <div class="post__content_info_min_button"><button class="post__content_info_min_btn"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="53" viewBox="0 0 52 53" fill="none">
+                                <circle cx="26" cy="26.5" r="26" fill="#F4F0EC"/>
+                                <path d="M23.771 33.1855L29.7139 26.4998L23.771 19.8141" stroke="#292F36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg></button></div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="articles center">
+                <div class="articles__heading">
+                    <h1 class="articles__heading_text">Articles & News</h1>
+                </div>
+                <div id="app" class="articles__all">
+                    <div v-for="article in articles" :key="article.id" class="articles__all_item">
+                        <img :src="article.src" :alt="article.alt" class="articles__all_item_img">
+                        <p class="articles__all_item_text">{{article.text}}</p>
+                        <div class="articles__all_item_content">
+                            <p class="articles__all_item_content_text">{{article.contentText}}</p>
+                            <div class="articles__all_item_content_contentmin">
+                                <p class="articles__all_item_content_texting">{{article.date}}</p>
+                                <div class="articles__all_item_content_button">
+                                    <button class="articles__all_item_content_btn"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="53" viewBox="0 0 52 53" fill="none">
+                                <circle cx="26" cy="26.267" r="26" fill="#F4F0EC"/>
+                                <path d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813" stroke="#292F36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg></button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="pagination center">
+                <ul class="pagination__list">
+
+                    <li class="pagination__list_item">
+                        <a class="pagination__list_item_hov" href="#">
+                            <h1 class="pagination__list_item_text"></h1>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="53" height="52" viewBox="0 0 53 52" fill="none">
+                            <circle cx="26.5" cy="26" r="26" fill="#F4F0EC"/>
+                          </svg></a>
+                    </li>
+                    <li class="pagination__list_item">
+                        <a class="pagination__list_item_hov" href="#">
+                            <h1 class="pagination__list_item_text"></h1><svg xmlns="http://www.w3.org/2000/svg" width="53" height="52" viewBox="0 0 53 52" fill="none">
+                            <circle cx="26.5" cy="26" r="25.5" stroke="#CDA274"/>
+                          </svg></a>
+                    </li>
+                    <li class="pagination__list_item">
+                        <a class="pagination__list_item_hov" href="#">
+                            <h1 class="pagination__list_item_text"></h1><svg xmlns="http://www.w3.org/2000/svg" width="53" height="52" viewBox="0 0 53 52" fill="none">
+                            <circle cx="26.5" cy="26" r="25.5" stroke="#CDA274"/>
+                          </svg></a>
+                    </li>
+
+                    <li class="pagination__list_item">
+                        <a class="pagination__list_item_hov" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="53" height="52" viewBox="0 0 53 52" fill="none">
+                                <circle cx="26.5" cy="26" r="25.5" stroke="#CDA274"/>
+                                <path d="M23.5571 32L29.5 25.3143L23.5571 18.6286" stroke="#292F36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </section>
+        </main>
+        <footer class="footer">
+            <section class="footer__page center">
+                <div class="footer__interno">
+                    <a href="#" class="footer__interno_logo"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="34" viewBox="0 0 35 34" fill="none">
+                    <path d="M0.5 34.0003H13.9588V24.499C13.9588 22.4853 15.5898 20.8543 17.6035 20.8543C19.6172 20.8543 21.2482 22.4853 21.2482 24.499V34.0003H34.4975V0C15.7211 0 0.5 15.2211 0.5 34.0003Z" fill="#CDA274"/>
+                  </svg></a>
+                    <a class="footer__interno_brand" href="#">Interno</a>
+                    <p class="footer__interno_text">It is a long established fact that a reader will be distracted lookings.</p>
+                    <a href="#"><img class="footer__interno_twiter" src="img/twiter.svg" alt=""></a>
+                    <a href="#"><img class="footer__interno_in" src="img/in.svg" alt=""></a>
+                </div>
+                <div class="footer__pages">
+                    <p class="footer__pages_heading">Pages</p>
+                    <a class="footer__pages_text" href="#">Home</a>
+                    <a class="footer__pages_text" href="#">Project</a>
+                    <a class="footer__pages_text" href="#">Blog</a>
+
+                </div>
+                <div class="footer__contact">
+                    <p class="footer__contact_heading">Contact</p>
+                    <p class="footer__contact_address">55 East Birchwood Ave. Brooklyn, New York 11201 </p>
+                    <p class="footer__contact_email">contact@interno.com</p>
+                    <p class="footer__contact_phone">(123) 456 - 7890</p>
+                </div>
+            </section>
+        </footer>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

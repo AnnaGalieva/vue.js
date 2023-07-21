@@ -8,8 +8,144 @@
 </head>
 
 <body>
+    <div id="app">
+
+        <div class="product_description">
+            <h1>1task</h1>
+            <p>Name:{{product.name}}</p>
+            <p>Price:{{product.price}}</p>
+            <p>Discount:{{product.description}}</p>
+            <img :src="product.srcImg" alt="product_photo">
+        </div>
+        <button v-bind:disabled="discountFlag" @click.once="generateDiscount">скидка</button>
+        <p v-if="discountFlag">Скидка получена</p>
+        <div>
+            <h1>2task</h1>
+            <ul v-for="user in users" :key="user.id">
+                <li>{{user.name}}-{{user.age}}</ul>
+            </li>
+        </div>
+        <div>
+            <h1>3task</h1>
+            <ul>
+                <li v-for="item in items" ::key="item.id">
+                    <input v-model="item.amount" type="text" name="item" id="">
+                    <label>
+                        <input type="checkbox"name="item"id="item.id">{{item.title}}</label></li>
+            </ul>
+        </div>
+        <div>
+            <h1>4task</h1>
+            <form @submit.prevent="addFormUser">
+                <label for="userName">Имя:</label><br>
+                <input v-model.lazy="name" type="text" name="userName" id="userName">
+                <br>
+                <label for="userName">Фамилия:</label><br>
+                <input v-model.lazy="surname" type="text" name="userSurname" id="userSurname">
+                <br>
+                <label for="userName">Email:</label><br>
+                <input v-model.lazy="email" type="email" name="userEmail" id="userEmail">
+                <br>
+                <button>Добавить</button>
+            </form>
+            <ul>
+                <li v-for="formUser in formUsers" :key="formUser.id">{{formUser.name}}{{formUser.surname}}{{formUser.email}}</li>
+            </ul>
+        </div>
+
+
+    </div>
     <script src="https://unpkg.com/vue@next"></script>
-    <script></script>
+    <script>
+        const seminar = {
+            data() {
+                return {
+                    product: {
+                        name: 'kat',
+                        price: 20,
+                        description: 'описание',
+                        srcImg: 'photo.jpg',
+                    },
+                    discountFlag: false,
+                    users: [{
+                        id: 1,
+                        name: 'Ltf Khh',
+                        age: 25,
+                    }, {
+                        id: 2,
+                        name: 'Khh Khh',
+                        age: 30,
+                    }, {
+                        id: 3,
+                        name: 'Plf Khh',
+                        age: 45,
+                    }, ],
+                    items: [{
+                        id: 1,
+                        title: 'Хлеб',
+                        amount: 1
+                    }, {
+                        id: 2,
+                        title: 'Молоко',
+                        amount: 20
+                    }, {
+                        id: 3,
+                        title: 'Яблоки',
+                        amount: 12
+                    }, {
+                        id: 4,
+                        title: 'Мясо',
+                        amount: 53
+                    }, ],
+
+                    name: '',
+                    surname: '',
+                    email: '',
+
+                    formUsers: [],
+
+                }
+            },
+            methods: {
+                generateDiscount() {
+                    const discount = Math.floor(Math.random() * 20 + 1);
+                    if (!this.discountFlag) {
+                        this.product.price *= (100 - discount) / 100;
+                        this.discountFlag = true;
+                    }
+                },
+                addFormUser() {
+                    if (this.name !== '' && this.surname !== '' && this.email !== '') {
+                        const formUser = {
+                            id: this.formUsers.length + 1,
+                            name: this.name,
+                            surname: this.surname,
+                            email: this.email,
+                        }
+                        this.formUsers.push(formUser);
+                        this.name = '';
+                        this.surname = '';
+                        this.email = '';
+                    }
+                }
+            },
+            computed: {
+                name() {
+                    return this.data;
+                }
+            }
+        }
+        Vue.createApp(seminar).mount('#app');
+        //1.   Вы разрабатываете страницу для отображения информации о товаре.У вас есть объект product, который содержит информацию о товаре, включая название, цену и URL изображения товара.Вам необходимо отобразить эту информацию на странице с использованием v - bind.
+        // Добавьте кнопку, которая будет изменять цену товара.При нажатии на кнопку должна генерироваться скидка на товар от 1 до 20 % и обновиться цена товара в соответствии с значением скидки
+
+        //2.  Вы разрабатываете простое приложение для отображения списка пользователей.У вас есть массив объектов users, где каждый объект представляет одного пользователя с его именем и возрастом.Вам необходимо отобразить каждого пользователя из массива в виде списка на странице.
+
+        //3.  Вы разрабатываете приложение для создания списка покупок.У вас есть массив объектов items, где каждый объект представляет товар с его названием и количеством.Вам необходимо отобразить список товаров, предоставить возможность изменять количество каждого товара и отмечать товары, которые уже куплены.
+
+        //4.  Вы разрабатываете приложение для управления списком контактов.У вас есть форма с полями "Имя", "Фамилия"
+        // и "Email", где пользователь может вводить информацию о новом контакте.После добавления контакта он должен отображаться в списке контактов.Требуется связать форму с данными и отображать список контактов на странице.
+    </script>
 </body>
 
 </html>
