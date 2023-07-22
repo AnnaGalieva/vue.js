@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <new-component title="Hello new title" :counter="counter"></new-component> -->
+        <!-- <new-component title="Hello second title"></new-component>
+        <new-component></new-component>
+        <standart-comp></standart-comp> -->
+        <!-- <new-component :title="article" v-for="article in articles" :key="article.id"></new-component> -->
+        <new-component title="Hello counter">
+        </new-component>
+        <button @click="currentTab=nameButton" v-for="nameButton in nameButtons" :key="nameButton.id">
+            {{ nameButton }}
+        </button>
+        <component :is="changeTabs"></component>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8"></script>
+    <script src="comp.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                // articles: ['info article', 'info article2', 'info article3']
+                // counter: 0,
+                nameButtons: ['one', 'two', 'three'],
+                currentTab: 'one',
+            },
+            methods: {
+                newInfo() {
+                    console.log('hello methods');
+                },
+            },
+            computed: {
+                changeTabs() {
+                    return `change-${this.currentTab}`;
+                },
+            },
+        })
+    </script>
+</body>
+
+</html>
