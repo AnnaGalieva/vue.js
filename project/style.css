@@ -868,6 +868,7 @@ a {
 }
 .details__main {
   display: flex;
+  gap: 65px;
 }
 .details__main_img {
   border-radius: 50px;

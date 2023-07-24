@@ -29,10 +29,10 @@
         </header>
         <main class="main">
             <section class="details__banner center"></section>
-            <section class="details center">
+            <section id="app" class="details center">
                 <div class="details__main">
-                    <!-- <kitchen></kitchen> -->
-                    <div class="details__main_all">
+                    <kitchen></kitchen>
+                    <!-- <div class="details__main_all">
                         <div class="details__main_heading">
                             <h1 class="details__main_heading_text">Let’s Get Solution for Building Construction Work</h2>
                         </div>
@@ -80,7 +80,7 @@
                         <a href="#" class="details__tags_btn_6">
                             <h1 class="details__tags_btn_text">Bedroom</h1>
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             </section>
         </main>
@@ -118,7 +118,7 @@
         // Создаём приложение Vue
         Vue.createApp({
             components: {
-                kitchen
+                kitchen,
             },
         }).mount('#app');
     </script>
