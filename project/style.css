@@ -847,4 +847,21 @@ a {
 }
 .pagination__list_item_hov:hover {
   color: #F16D7F;
+}
+
+.details__banner {
+  background-image: url(img/details__banner.svg);
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  width: 2248px;
+  height: 360px;
+  flex-shrink: 0;
+  margin-top: 50px;
+  margin-bottom: 180px;
+}
+
+.details {
+  margin-bottom: 96px;
+  display: flex;
 }/*# sourceMappingURL=style.css.map */

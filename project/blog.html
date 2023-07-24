@@ -74,7 +74,8 @@
                 <div id="app" class="articles__all">
                     <div v-for="article in articles" :key="article.id" class="articles__all_item">
                         <img :src="article.src" :alt="article.alt" class="articles__all_item_img">
-                        <p class="articles__all_item_text">{{article.text}}</p>
+                        <a class="articles__all_item_text" href="blog_details.html">{{article.text}}
+                            </a>
                         <div class="articles__all_item_content">
                             <p class="articles__all_item_content_text">{{article.contentText}}</p>
                             <div class="articles__all_item_content_contentmin">
