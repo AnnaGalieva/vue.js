@@ -864,4 +864,16 @@ a {
 .details {
   margin-bottom: 96px;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 57px;
+}
+.details__tags_heading {
+  color: #292F36;
+  font-family: DM Serif Display;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  letter-spacing: 0.5px;
 }/*# sourceMappingURL=style.css.map */
